@@ -25,7 +25,7 @@ action_cf_mwl = cloudflare[cfuser="%(cfemail)s", cftoken="%(cfapikey)s"]
                 %(mta)s-whois-lines[name=%(__name__)s, sender="%(sender)s", dest="%(destemail)s", logpath=%(logpath)s, chain="%(chain)s"]
 
 action_cf_v4 = cloudflare-restv4[cfuser="%(cfemail)s", cfkey="%(cfapikey)s"]
-				%(mta)s-whois-lines[name=%(__name__)s, sender="%(sender)s", dest="%(destemail)s", logpath=%(logpath)s, chain="%(chain)s"]
+               %(mta)s-whois-lines[name=%(__name__)s, sender="%(sender)s", dest="%(destemail)s", logpath=%(logpath)s, chain="%(chain)s"]
 
 # JAILS
 #
@@ -40,7 +40,7 @@ action_cf_v4 = cloudflare-restv4[cfuser="%(cfemail)s", cfkey="%(cfapikey)s"]
 [recidive]
 logpath  = /var/log/fail2ban.log
 banaction = %(banaction_allports)s
-action   = iptables-allports[name=%(__name__)s, bantime="%(bantime)s", port="%(port)s", protocol="%(protocol)s", chain="%(chain)s"]
+action   = %(banaction)s[name=%(__name__)s, bantime="%(bantime)s", port="%(port)s", protocol="%(protocol)s", chain="%(chain)s"]
            cloudflare-restv4[cfuser="%(cfemail)s", cfkey="%(cfapikey)s"]
            %(mta)s-whois-lines[name=%(__name__)s, sender="%(sender)s", dest="%(destemail)s", logpath=%(logpath)s, chain="%(chain)s"]
 bantime  = 604800  ; 1 week
